@@ -1,0 +1,20 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kanji",
+  "compatibility_date": "2026-11-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  // 書き出した dist/ をそのまま配る。動画だけ worker.js を通して部分読み込みに答える
+  "main": "worker.js",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/assets/*.mp4"]
+  },
+  "routes": [
+    {
+      "pattern": "kanji.yulab.me",
+      "custom_domain": true
+    }
+  ]
+}

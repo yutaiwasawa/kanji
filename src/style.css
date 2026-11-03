@@ -1,0 +1,213 @@
+:root{--teal:#30BCA7;--teal-hover:#089781;--teal-deep:#0F8472;--teal-soft:#64D8C6;--teal-200:#BCECD3;--teal-100:#E2F6F3;--yellow:#F7F741;--g700:#333;--g500:#666;--g400:#939393;--g150:#E5E5E5;--g100:#F0F0F0}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+html{overflow-anchor:none}
+body{font-family:"Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif;color:#000;background:#FFFCF5;font-size:15px;line-height:1.7;letter-spacing:.04em;-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;letter-spacing:inherit;touch-action:manipulation;cursor:pointer}
+.backdrop{position:fixed;inset:0;overflow:hidden;background:#FFFCF5;pointer-events:none}
+.backdrop>div{position:absolute;inset:-12%;animation:drift 60s ease-in-out infinite alternate;background-image:
+ radial-gradient(34% 34% at 14% 6%,rgba(115,219,186,.2) 0,rgba(115,219,186,.144) 42%,rgba(115,219,186,0) 72%),
+ radial-gradient(26% 26% at 84% 3%,rgba(255,217,107,.22) 0,rgba(255,217,107,.158) 42%,rgba(255,217,107,0) 72%),
+ radial-gradient(20% 20% at 56% 15%,rgba(255,179,158,.16) 0,rgba(255,179,158,.115) 42%,rgba(255,179,158,0) 72%),
+ radial-gradient(30% 30% at -4% 27%,rgba(255,217,107,.16) 0,rgba(255,217,107,.115) 42%,rgba(255,217,107,0) 72%),
+ radial-gradient(32% 32% at 97% 31%,rgba(115,219,186,.15) 0,rgba(115,219,186,.108) 42%,rgba(115,219,186,0) 72%),
+ radial-gradient(17% 17% at 33% 39%,rgba(255,179,158,.14) 0,rgba(255,179,158,.1) 42%,rgba(255,179,158,0) 72%),
+ radial-gradient(30% 30% at 72% 49%,rgba(255,217,107,.18) 0,rgba(255,217,107,.13) 42%,rgba(255,217,107,0) 72%),
+ radial-gradient(23% 23% at 6% 57%,rgba(255,179,158,.18) 0,rgba(255,179,158,.13) 42%,rgba(255,179,158,0) 72%),
+ radial-gradient(36% 36% at 47% 67%,rgba(115,219,186,.13) 0,rgba(115,219,186,.094) 42%,rgba(115,219,186,0) 72%),
+ radial-gradient(22% 22% at 92% 73%,rgba(255,179,158,.2) 0,rgba(255,179,158,.144) 42%,rgba(255,179,158,0) 72%),
+ radial-gradient(28% 28% at 19% 85%,rgba(255,217,107,.16) 0,rgba(255,217,107,.115) 42%,rgba(255,217,107,0) 72%),
+ radial-gradient(25% 25% at 68% 93%,rgba(115,219,186,.16) 0,rgba(115,219,186,.115) 42%,rgba(115,219,186,0) 72%)}
+@keyframes drift{to{transform:translate3d(6%,-2%,0)}}
+.app{position:relative;max-width:430px;min-height:100dvh;margin:0 auto;padding:12px 20px calc(28px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:24px}
+.top{display:grid;grid-template-columns:auto 1fr auto;align-items:center;min-height:44px}
+.top .link:first-child{justify-self:start;padding-left:0}
+.top .right{justify-self:end}
+.link{background:none;border:0;min-height:44px;padding:0 4px;font-size:13.5px;font-weight:700;color:var(--g500)}
+h1{margin:6px 0 0;text-align:center;font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN",sans-serif;font-weight:900;font-size:clamp(20px,5.9vw,25px);line-height:1.45;letter-spacing:.03em;min-height:2.9em;display:flex;flex-direction:column;justify-content:center}
+h1.one{min-height:0}
+h1 span{display:block}
+h1 u{text-decoration:underline;text-decoration-color:var(--teal-soft);text-decoration-thickness:3px;text-underline-offset:4px}
+.sub{margin:-14px 0 0;text-align:center;color:var(--g500);font-size:13.5px}
+.fine{margin:0;text-align:center;color:var(--g500);font-size:12px;line-height:1.6}
+.fade{animation:fade .35s ease-out}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.card{background:#fff;border:1.5px solid #000;border-radius:14px;overflow:hidden}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:12px 16px;border-bottom:1px solid var(--g150);font-weight:700;font-size:15.5px}
+.state{display:inline-flex;align-items:center;gap:6px;flex:none;background:var(--teal-100);color:var(--teal-deep);border-radius:999px;padding:1px 11px;font-size:12px;font-weight:700}
+.state i{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.btn{display:flex;align-items:center;justify-content:center;position:relative;width:100%;min-height:54px;border-radius:999px;border:1.5px solid #000;background:var(--teal);color:#fff;font-weight:700;font-size:16px;padding:12px 44px;transition:background-color .15s,transform .15s,opacity .15s}
+.btn:hover{background:var(--teal-hover)}
+.btn:active{transform:scale(.97)}
+.btn .arrow{position:absolute;right:20px;width:20px;height:20px}
+.btn[disabled]{opacity:.4;cursor:not-allowed;transform:none;background:var(--teal)}
+.btn.ghost{background:#fff;color:#000;min-height:48px;font-size:14.5px}
+.btn.ghost:hover{background:var(--teal-100)}
+.pill-btn{flex:none;min-height:44px;border-radius:999px;border:1.5px solid #000;background:#fff;padding:0 18px;font-weight:700;font-size:14px;transition:transform .15s,background-color .15s}
+.pill-btn:hover{background:var(--teal-100)}
+.pill-btn:active{transform:scale(.96)}
+/* ホーム */
+.item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 16px;min-height:72px;border-top:1px solid var(--g150)}
+.item:first-child{border-top:0}
+.item strong{display:block;font-size:16px;line-height:1.5}
+.item small{display:block;color:var(--g500);font-size:13px;line-height:1.5}
+.mark{flex:none;width:30px;height:30px;border-radius:50%;border:1.5px solid var(--g400);display:grid;place-items:center;color:#fff;font-weight:900;font-size:16px;letter-spacing:0}
+.mark.done{background:var(--teal);border-color:var(--teal)}
+.mark.num{background:var(--teal);border-color:var(--teal);font-size:15px}
+/* お店 */
+.shop{display:flex;align-items:center;gap:12px;width:100%;min-height:76px;padding:9px 16px;background:#fff;border:0;text-align:left;transition:background-color .15s}
+.shop img,.won img{width:56px;height:56px;border-radius:10px;object-fit:cover;flex:none;display:block}
+.shop .txt,.won .txt{flex:1;min-width:0}
+.shop strong,.won strong{display:block;font-size:15.5px;line-height:1.45}
+.shop small,.won small{display:block;color:var(--g500);font-size:12.5px;line-height:1.5}
+.won{display:flex;align-items:center;gap:12px;padding:10px 14px}
+/* 集計 */
+.tally{position:relative;margin:8px 0 8px}
+.tr-row{position:absolute;left:0;right:0;display:flex;align-items:center;gap:12px;padding:0 16px;height:var(--pitch);transition:transform .7s cubic-bezier(.4,0,.2,1),opacity .5s}
+.tr-row.out{opacity:.45}
+.tr-body{flex:1;min-width:0}
+.tr-line{display:flex;align-items:center;justify-content:space-between;gap:6px;min-height:24px}
+.tr-name{font-weight:700;font-size:14.5px;white-space:nowrap}
+.tr-row.out .tr-name,.tr-row.drop .tr-name{text-decoration:line-through}
+.tr-tags{display:flex;gap:5px;align-items:center}
+.tag{border-radius:999px;font-size:11.5px;font-weight:700;padding:0 9px;line-height:21px;color:#fff;white-space:nowrap;letter-spacing:.02em}
+.tag.off{background:var(--g400)}
+.tag.win{background:var(--teal-deep);animation:land .45s ease-out}
+@keyframes land{from{opacity:0;transform:scale(1.5)}to{opacity:1;transform:none}}
+.tr-bar{display:flex;align-items:center;gap:8px;margin-top:3px}
+.slots{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+.v{height:16px;border-radius:4px;background:var(--g100);transition:background-color .3s,box-shadow .3s}
+.v.t{background:var(--teal)}
+.v.y{background:var(--yellow);box-shadow:inset 0 0 0 1.5px #000}
+.v.flying{position:fixed;z-index:20;margin:0;transition:transform 1s cubic-bezier(.45,0,.2,1);box-shadow:inset 0 0 0 1.5px #000,0 6px 14px rgba(0,0,0,.25)}
+.count{flex:none;width:36px;text-align:right;font-weight:700;font-size:14px;letter-spacing:0}
+.push{display:flex;flex-direction:column;gap:10px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}}
+
+.method{padding:15px 16px;border-top:1px solid var(--g150)}
+.method:first-child{border-top:0}
+.method.best{background:var(--teal-100)}
+.method strong{display:block;font-size:16px;line-height:1.5}
+.method small{display:block;color:var(--g500);font-size:13px;line-height:1.6;margin:4px 0 12px}
+.method .row{display:flex;flex-direction:column;gap:8px}
+
+.tlink{align-self:center;background:none;border:0;min-height:44px;padding:0 8px;color:var(--teal-deep);font-size:13.5px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.tlink:hover{color:var(--teal-hover)}
+.body{margin:0;padding:14px 16px;font-size:14.5px}
+.fine.big{font-size:13.5px}
+a.btn{text-decoration:none}
+.url{display:block;margin-top:8px;color:var(--teal-deep);font-size:13px;word-break:break-all}
+a.tlink{display:flex;align-items:center}
+.why{margin:0;padding:12px 16px 14px;border-top:1px solid var(--g150);font-size:14px;line-height:1.7}
+.why.cap{min-height:4.2em;font-size:13px;letter-spacing:.01em}
+.card+.tlink{margin-top:-14px}
+
+.inline{display:block;margin:0 auto;background:none;border:0;min-height:32px;padding:0 4px;color:var(--teal-deep);font-size:13px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.info{margin:0;padding:8px 16px;border-bottom:1px solid var(--g150);display:grid;gap:2px;font-size:13px}
+.info div{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.info dt{color:var(--g500)}
+.info dd{margin:0;font-weight:700}
+.shop-row{position:relative;border-top:1px solid var(--g150)}
+.shop-row:first-of-type{border-top:0}
+.shop-row.sel,.shop-row.sel .shop{background:var(--teal-100)}
+.shop-row .shop{padding-bottom:30px;min-height:96px;align-items:flex-start}
+.detail{position:absolute;left:84px;bottom:5px;background:none;border:0;min-height:30px;padding:0;color:var(--teal-deep);font-size:12.5px;font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.fine.strong{color:var(--g700);font-weight:700}
+.item.mine{justify-content:flex-start;min-height:54px}
+.video{position:relative;padding:0;aspect-ratio:1/1;background:#fff}
+.video video{display:block;width:100%;height:auto;aspect-ratio:1/1;background:#fff;cursor:pointer;opacity:0;transition:opacity .2s}
+.video video.ready{opacity:1}
+.modal{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.45);display:flex;align-items:flex-end;justify-content:center;padding:0;overflow-y:auto}
+.modal:focus{outline:none}
+.sheet{width:100%;max-width:430px;background:#fff;border:1.5px solid #000;border-bottom:0;border-radius:18px 18px 0 0;padding:8px 20px calc(20px + env(safe-area-inset-bottom));display:flex;flex-direction:column;gap:16px}
+@media (min-width:600px){.modal{align-items:center}.sheet{border-bottom:1.5px solid #000;border-radius:18px}}
+.sheet-head{display:flex;align-items:center;gap:16px}
+.sheet-head img{width:88px;height:88px;border-radius:12px;object-fit:cover}
+.sheet-head strong{display:block;font-size:18px;line-height:1.4}
+.sheet-head small{display:block;color:var(--g500);font-size:12.5px;line-height:1.5}
+.rows{margin:0}
+.rows div{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-top:1px solid var(--g150);font-size:13.5px}
+.rows dt{color:var(--g500);flex:none}
+.rows dd{margin:0;font-weight:700;text-align:right}
+.won .pill-btn{padding:0 12px;font-size:13px;min-height:40px;white-space:nowrap}
+.won .txt small{word-break:keep-all;overflow-wrap:anywhere}
+.vctl{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap}
+.vctl .pill-btn{font-size:13.5px}
+.mine-line{display:inline-block;color:var(--teal-deep);background:var(--teal-100);padding:0 4px;margin-left:2px;border-radius:4px}
+.how-sheet{max-height:100dvh;overflow-y:auto}
+.how-sheet .video{flex:none}
+
+/* 動画の読み込み中 */
+.loading{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--g500);font-size:13.5px;font-weight:700;background:#fff}
+.loading i{width:38px;height:38px;border-radius:50%;border:4px solid var(--teal-100);border-top-color:var(--teal);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.video.loaded .loading{display:none}
+/* スマホではボタンを大きく */
+@media (max-width:600px){
+  .btn{min-height:68px;font-size:17px}
+  .btn.ghost{min-height:64px;font-size:16px}
+  .pill-btn{min-height:50px;font-size:15px;padding:0 20px}
+  .tlink,.link,.inline{min-height:50px;font-size:15px;padding:0 12px}
+  .won .pill-btn{min-height:48px;font-size:14px}
+  .shop-row .shop{padding-bottom:32px;min-height:98px}
+  .detail{bottom:5px;left:72px;min-height:40px;padding:0 12px;font-size:14px}
+  .vctl .pill-btn{font-size:15px}
+}
+
+/* 動画が終わったら少し暗くして、もう一度見るを出す */
+.ended-cover{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.5);animation:fade .3s ease-out}
+.ended-cover[hidden]{display:none}
+.replay{min-height:52px;font-size:15px;padding:0 24px}
+.tlink[hidden]{display:none}
+
+/* おすすめの決め方を大きく */
+.method.best .rec{align-self:flex-start;margin:0 0 6px}
+.method.best strong{font-size:20px;line-height:1.4}
+
+/* メッセージのコピー */
+.card.msg{position:relative}
+.card.msg .body{padding-right:60px}
+.copy-icon{position:absolute;top:8px;right:8px;display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;background:#fff;border:0;border-radius:10px;color:var(--teal-deep);cursor:pointer}
+.copy-icon:hover{background:var(--teal-100)}
+.copy-note{margin:0;padding:8px 16px;border-top:1px solid var(--g150);background:var(--teal-100);color:var(--teal-deep);font-size:13px;font-weight:700}
+.copy-note[hidden]{display:none}
+
+.home-status{margin:0;text-align:center;font-size:15px;font-weight:700;color:var(--teal-deep)}
+
+/* 説明を開くリンク。頭に「?」。投票の画面では見出しに寄せる */
+.help{display:flex;align-items:center;justify-content:center;gap:6px}
+.inline.help{display:flex;margin-top:-18px}
+.help-icon{width:1.2em;height:1.2em;flex:none}
+.link.back{display:flex;align-items:center;gap:2px}
+.back-icon{width:1.15em;height:1.15em;flex:none}
+/* ポップアップの右上の × */
+.sheet-bar{display:flex;justify-content:flex-end;margin:0 -10px -6px 0}
+.close-x{display:flex;align-items:center;justify-content:center;width:44px;height:44px;padding:0;background:none;border:0;border-radius:50%;color:#000}
+.close-x:hover{background:var(--g100)}
+.close-x svg{width:22px;height:22px}
+/* メッセージの画面で、選んだ決め方 */
+.method-chosen{margin:0;display:flex;align-items:center;justify-content:center;gap:8px;font-size:14px;font-weight:700}
+.method-chosen span{border-radius:999px;background:var(--teal-100);color:var(--teal-deep);font-size:12px;padding:0 10px;line-height:22px}
+/* お店の行の丸は、区切りの間の真ん中に */
+.shop-row .mark{position:absolute;right:16px;top:50%;transform:translateY(-50%)}
+/* 見出しの中で、選ぶ数だけ色を変える */
+h1 .hl{font-style:normal;color:var(--teal-deep)}
+/* 黄色の印。どこで使っても同じ見た目 */
+.badge{display:inline-block;border-radius:999px;background:var(--yellow);color:#000;box-shadow:inset 0 0 0 1.5px #000;font-size:12px;font-weight:700;line-height:22px;padding:0 10px;white-space:nowrap;letter-spacing:.02em}
+.badge.pop{animation:land .35s ease-out}
+/* 選び直しの案内は一覧のすぐ下に */
+.fine.repick{margin:-14px 0 -8px}
+/* PC でお店の一覧が詰まらないように */
+@media (min-width:601px){
+  .shop-row .shop{padding-top:14px;padding-bottom:36px;min-height:104px}
+  .detail{bottom:12px}
+  .info{padding:12px 16px}
+}
+.deadline-line{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px;color:#000;font-weight:700}
+/* 参加者の結果の締めの一言 */
+.closing{margin:0;text-align:center;font-size:14.5px;font-weight:700;color:#000}
+/* ホームの一覧の下、投票中の状態 */
+.home-voting{display:flex;flex-direction:column;align-items:flex-start;gap:8px;width:max-content;max-width:100%;margin:0 auto 14px}
+.home-voting p{margin:0;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:700}
+.home-voting .method-chosen span,.home-voting .state{display:inline-flex;justify-content:center;min-width:84px;box-sizing:border-box}
+.method-chosen.above-heading{margin:8px 0 -14px}
